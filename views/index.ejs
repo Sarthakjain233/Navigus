@@ -1,0 +1,21 @@
+<%- include("partials/header") %>
+
+<a class="btn btn-primary btn-md" role="button" href="/event/new">New Event</a>
+<hr>
+<div class="container">
+	<div class="row text-center">
+		<% events.forEach(function(event){ %>
+			<div class="col-md-3 col-sm-6" style="margin-bottom : 1rem;">
+				<div class="card border border-success" style="width: 18rem;">
+					 <div class="card-body">
+							<h5 class="card-title"><%= event.name %></h5>
+						 	<h6 class="card-subtitle mb-2 text-muted"><%= event.date %></h6>
+							 <a href="/event/book" class="card-link btn btn-md btn-primary">Book</a>
+					  </div>
+				</div>
+			</div>
+		<% }) %>
+	</div>
+</div>
+  
+<%- include("partials/footer") %>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Make site responsive on mobile/tablet -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--Bootstrap4 -->
+		 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		 <link rel="stylesheet" href="../stylesheets/landing.css">
+	</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-light bg-light">
+		<div class ="container">
+		<a class="navbar-brand" href="/">Calendar</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" 
+					aria-expanded="false" aria-label="Toggle navigation">
+					 <span class="navbar-toggler-icon"></span>
+					</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ml-auto">
+					  <% if(!currentUser){ %>
+						  <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %> navbar-item">
+							  <a href="/login" class="nav-link navbar-brand">Login</a></li>
+						  <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %> navbar-item">
+							  <a href="/register" class="nav-link navbar-brand">Sign Up</a></li>
+						<% } else { %>
+						   <li>Signed In As<a href="#" class="nav-link navbar-brand"><%= currentUser.username %></a></li>
+					  	   <li class="nav-item"><a href="/logout" class="nav-link navbar-brand">Logout</a></li>
+						<% } %>
+					</ul>
+				</div>
+		</div>
+		</nav>
+	<div class="section">
+	<div class= "container row">
+	<div class ="col-6-md col1">
+		<h1 class="head">
+			Calendly helps you schedule meetings without the back-and-forth emails
+		</h1>
+		<a class="btn btn-primary btn-lg active" role="button" href="/login">
+			Get Started For Free 
+		</a>
+		<p class="text-center">Get started for free. No credit card required.</p>
+	</div>
+	<div class="col-6-md col1">
+		<img src="https://assets.calendly.com/assets/landing/homepage/hero-c7322cf6fde0bb0e852c466af957fd7330c8e8607dfe0854947a3cc00a5dfa77.png" 						width="380" height="340">			
+	</div>
+	</div>
+</div>
+
+<%- include("partials/footer") %>
